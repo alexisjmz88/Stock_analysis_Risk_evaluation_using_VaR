@@ -18,7 +18,7 @@ El proyecto toma cinco activos de sectores distintos (criptomonedas, tecnología
 
 ## 🎯 Objetivos
 
-- Construir y depurar el dataset de precios de cierre mediante **SQL**.
+- Construir y depurar los datasets de precios de cierre mediante **SQL**.
 - Caracterizar el comportamiento estadístico de los activos (rendimientos, drawdown, volatilidad y sensibilidad al mercado).
 - Modelar la media (ARIMA) y la varianza condicional (GARCH) de los rendimientos logarítmicos.
 - Evaluar la capacidad predictiva de los modelos **fuera de muestra** con ventana expansiva.
@@ -63,7 +63,7 @@ El proyecto toma cinco activos de sectores distintos (criptomonedas, tecnología
 
 | Columna | Tipo | Descripción |
 |---------|------|-------------|
-| `Fecha` | datetime | Fecha de cada sesión de mercado (índice del dataset). |
+| `Fecha` | datetime | Fecha de cada sesión de mercado entre el 15/04/2021 y el 21/09/2026 (índice del dataset). |
 | `sp500` | float | Valor al cierre del índice S&P 500, utilizado como *benchmark* para el cálculo de beta. |
 
 > 📊 **Volumen:** 1,365 sesiones de mercado, sin valores nulos ni duplicados.
@@ -120,16 +120,25 @@ Los rendimientos no siguen una distribución normal: muestran colas pesadas, *vo
 ## 📁 Estructura del repositorio
 
 ```
-📦 nombre-del-repositorio
-├── 📂 data
-│   ├── stocks_data.csv
-│   └── sp_data.csv
-├── 📂 sql
-│   └── nombre_del_script.sql
-├── 📂 notebooks
-│   └── Stock_Analysis.ipynb
-├── 📄 README.md
-└── 📄 LICENSE
+📦 Stock_analysis_Risk_evaluation_using_VaR
+├── 📂 DATA
+│   ├── 📂 CLEAN_DATA
+|   |    ├── stocks_data.csv
+|   |    └── sp_data.csv
+│   └── 📂 RAW_DATA
+|        ├── coin_data.csv
+|        ├── goog_data.csv
+|        ├── ppta_data.csv
+|        ├── soxx_data.csv
+|        ├── sp500_data.csv
+|        └── ual_data.csv
+├── 📂 NOTEBOOKS
+│    └── Stock_Analysis.ipynb
+├── 📂 SQL
+|    ├── stocks_data.csv
+│    └── sp_data.csv
+├── 📄 LICENSE
+└── 📄 README.md
 ```
 
 ---
@@ -138,14 +147,14 @@ Los rendimientos no siguen una distribución normal: muestran colas pesadas, *vo
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/nombre-del-repositorio.git
+   git clone https://github.com/alexisjmz88/Stock_analysis_Risk_evaluation_using_VaR.git
    ```
-2. Ejecuta el script de la carpeta `sql/` para construir el dataset (o utiliza directamente los CSV de `data/`).
+2. Ejecuta los scripts de la carpeta `SQL/` para construir los datasets (o utiliza directamente los CSV de `DATA/CLEAN_DATA/`).
 3. Instala las dependencias:
    ```bash
    pip install pandas numpy matplotlib seaborn statsmodels scikit-learn scipy arch
    ```
-4. Abre y ejecuta `notebooks/Stock_Analysis.ipynb`.
+4. Abre y ejecuta `NOTEBOOKS/Stock_Analysis.ipynb`.
 
 ---
 
