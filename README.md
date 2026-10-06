@@ -135,8 +135,8 @@ Los rendimientos no siguen una distribución normal: muestran colas pesadas, *vo
 ├── 📂 NOTEBOOKS
 │    └── Stock_Analysis.ipynb
 ├── 📂 SQL
-|    ├── stocks_data.csv
-│    └── sp_data.csv
+|    ├── stocks_data_query.sql
+│    └── sp_data_query.sql
 ├── 📄 LICENSE
 └── 📄 README.md
 ```
